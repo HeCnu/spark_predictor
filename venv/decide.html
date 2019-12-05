@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>Whitesquare</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}" type="text/css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+</head>
+
+
+<body>
+
+	<div id="wrapper">
+		<header>
+			<a href="{{ url_for('index') }}"><img src="{{ url_for('static',filename='img/heslogocolor.png') }}" alt="HSE"  width="200" height="100" ></a>
+			<form name="search" action="#" method="get">
+				<input type="text" name="q" placeholder="Search"><button type="submit">GO</button>
+			</form>
+
+		</header>
+		<nav>
+			
+		<ul class="top-menu">
+		<li><a href="{{url_for('index')}}">Описание задачи</a></li>
+		<li><a href="{{url_for('decide')}}">Решение</a></li>
+		<li><a href="{{url_for('kmeans')}}">K-means анализ</a></li>
+	</ul>
+
+		</nav>
+		<div id="heading">Решение</div>
+		<aside></aside>
+		<section>
+
+	<form action="" method="post">
+		<input placeholder="Введите кол-во выводимых значений" name="kolvoznachenii" type="number" min="1" max="100">
+		<input placeholder="Введите доп. число" name="dopchislo" type="number" min="100000" max="999999">
+		<input text="Принять" type="submit">
+	</form>
+
+	<p>Вы ввели кол-во: {{param1}}</p>
+	<p>Вы ввели доп. число: {{param2}}</p>
+	<ul>
+		{%for object in data:%}
+			<li> {{object}} </li>
+		{%endfor%}
+	</ul>
+
+</section>
+	</div>
+	<footer></footer>
+
+</body>
+</html>
